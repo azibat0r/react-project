@@ -4,21 +4,24 @@ import { Header } from '../components/Header';
 import './HomePage.css';
 
 
-export function HomePage() {
+export function HomePage( {cart}) {
+
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        axios('http://localhost:3000/api/products')
+        axios('/api/products')
             .then((response) => {
                 setProducts(response.data);
             });
+
+
     }, []);
 
 
 
     return (
             <>   
-                <Header />
+                <Header cart={cart}/>
                 <title>Ecommerce Project</title>
 
 
